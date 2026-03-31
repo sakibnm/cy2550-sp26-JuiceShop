@@ -100,5 +100,4 @@ With parameterized queries, the database treats `userInput` as a **data value** 
 Understand **classic SQL Injection on a login form**. Learn why string concatenation in SQL queries is dangerous — it allows an attacker to break out of a data context and inject arbitrary SQL logic. **Parameterized queries** (prepared statements) are the primary defense, and they completely eliminate this class of vulnerability.
 
 ---
-
-[← Back to Index](index.md) | [Previous: Challenge 3](challenge-03-bonus-payload.md) | [Next: Challenge 5 — Reflected XSS →](challenge-05-reflected-xss.md)
+[← Back to Index](/challenges/) 

@@ -104,4 +104,4 @@ Reinforce **targeted SQL Injection** skills and understand that **password stren
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 6](challenge-06-login-jim.md) | [Next: Challenge 8 — Client-side XSS Protection Bypass →](challenge-08-client-side-bypass.md)
+[← Back to Index](/challenges/) 

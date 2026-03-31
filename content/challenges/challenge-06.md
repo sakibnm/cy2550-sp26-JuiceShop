@@ -114,4 +114,4 @@ Learn to perform **targeted SQL Injection** against a specific user account. Und
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 5](challenge-05-reflected-xss.md) | [Next: Challenge 7 — Login Bender via SQLi →](challenge-07-login-bender.md)
+[← Back to Index](/challenges/) 

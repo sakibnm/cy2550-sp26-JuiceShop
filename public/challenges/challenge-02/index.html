@@ -129,6 +129,16 @@ The Juice Shop has a product search feature. When you type a search term, the ap
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/challenges/" title="Challenges">
+                    <span>Challenges</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -196,8 +206,14 @@ The Juice Shop has a product search feature. When you type a search term, the ap
 </ol>
 <hr>
 <h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<details>
+<summary>Hint 1</summary>
+The search bar is the most obvious input field on the page. The application renders your search term directly into the results heading (e.g., "Search Results — <your input>").
+</details>
+<details>
+<summary>Hint 2</summary>
+An <code>&lt;iframe&gt;</code> with a <code>javascript:</code> source causes the browser to execute the JavaScript expression when it renders the element. This is an alternative to <code>&lt;script&gt;</code> tags, which some basic filters block.
+</details>
 <hr>
 <h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
 <ol>
@@ -216,7 +232,7 @@ The Juice Shop has a product search feature. When you type a search term, the ap
 <h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
 <p>Understand <strong>DOM-based XSS</strong> — where the vulnerability exists entirely in client-side JavaScript that takes user input and writes it to the page without sanitization. The fix is to use safe DOM APIs (like <code>textContent</code> or <code>innerText</code>) instead of <code>innerHTML</code>, or to sanitize input before rendering.</p>
 <hr>
-<p><a href="index.md">← Back to Index</a> | <a href="challenge-01-score-board.md">Previous: Challenge 1</a> | <a href="challenge-03-bonus-payload.md">Next: Challenge 3 — Bonus Payload →</a></p>
+<p><a href="/challenges/">← Back to Index</a></p>
 
 
   </div>

@@ -129,6 +129,16 @@ In Challenges 4, 6, and 7 you exploited SQL Injection on the login form. That en
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/challenges/" title="Challenges">
+                    <span>Challenges</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -229,7 +239,9 @@ In Challenges 4, 6, and 7 you exploited SQL Injection on the login form. That en
 </ol>
 <hr>
 <h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
-<!-- raw HTML omitted -->
+<details>
+<summary>Hint 1 — Reading the error messages</summary>
+When you inject a single quote, the error response will contain something like:
 <pre tabindex="0"><code>SQLITE_ERROR: unrecognized token: &#34;...&#34;
 </code></pre><p>And it may show the full query:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Products <span style="color:#66d9ef">WHERE</span> ((name <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%&lt;input&gt;%&#39;</span> <span style="color:#66d9ef">OR</span> description <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%&lt;input&gt;%&#39;</span>) <span style="color:#66d9ef">AND</span> deletedAt <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> name
@@ -239,9 +251,15 @@ In Challenges 4, 6, and 7 you exploited SQL Injection on the login form. That en
 <li>Your input appears inside <code>'%..%'</code> with double parentheses</li>
 <li>There&rsquo;s a <code>deletedAt IS NULL</code> filter you need to comment out</li>
 </ul>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</details>
+<details>
+<summary>Hint 2 — Why 9 columns?</summary>
+The Products table has 9 columns. A UNION SELECT must return the same number. You can verify this by looking at the JSON response for a normal search — count the fields per product object (id, name, description, price, deluxePrice, image, createdAt, updatedAt, deletedAt = 9).
+</details>
+<details>
+<summary>Hint 3 — What is sqlite_master?</summary>
+<code>sqlite_master</code> is a special system table present in every SQLite database. It has columns: <code>type</code>, <code>name</code>, <code>tbl_name</code>, <code>rootpage</code>, and <code>sql</code>. The <code>sql</code> column contains the full <code>CREATE TABLE</code> statement for each table, including all column names and types — essentially the entire database schema.
+</details>
 <hr>
 <h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
 <ol>
@@ -304,7 +322,7 @@ Challenge 11: Dump all user credentials (data theft)  ◀── NEXT
 <h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
 <p>Learn <strong>UNION-based SQL Injection</strong> — a technique for extracting arbitrary data from a database through an endpoint that returns query results to the user. Understand how <strong>error messages assist attackers</strong> by revealing query structure, table names, and database engine details. Recognize that <strong>information disclosure through error handling</strong> must be controlled — production applications should return generic error messages, not SQL debug output.</p>
 <hr>
-<p><a href="index.md">← Back to Index</a> | <a href="challenge-09-api-xss.md">Previous: Challenge 9</a> | <a href="challenge-11-credential-theft.md">Next: Challenge 11 — Retrieve All User Credentials →</a></p>
+<p><a href="/challenges/">← Back to Index</a></p>
 
 
   </div>

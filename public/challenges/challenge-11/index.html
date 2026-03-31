@@ -129,6 +129,16 @@ In Challenge 10 you extracted the database schema from sqlite_master. You now kn
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/challenges/" title="Challenges">
+                    <span>Challenges</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -247,13 +257,20 @@ In Challenge 10 you extracted the database schema from sqlite_master. You now kn
 </ol>
 <hr>
 <h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
-<!-- raw HTML omitted -->
+<details>
+<summary>Hint 1 — Column positioning</summary>
+The product search results display column 2 as the product name and column 3 as the description. Place <code>email</code> in position 2 and <code>password</code> in position 3 for readable output:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">UNION</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#ae81ff">1</span>,email,password,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span> <span style="color:#66d9ef">FROM</span> Users
-</span></span></code></pre></div><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</span></span></code></pre></div></details>
+<details>
+<summary>Hint 2 — Including the user ID</summary>
+To also see the user's ID (useful for identifying the admin, who is typically ID 1), you can place <code>id</code> in one of the other positions:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">UNION</span> <span style="color:#66d9ef">SELECT</span> id,email,password,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span> <span style="color:#66d9ef">FROM</span> Users
-</span></span></code></pre></div><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</span></span></code></pre></div></details>
+<details>
+<summary>Hint 3 — Cracking the admin hash</summary>
+The administrator's password hash is <code>0192023a7bbd73250516f069df18b500</code>. This is the MD5 hash of a very common password. Looking it up in any rainbow table or hash database will immediately reveal the plaintext: <code>admin123</code>.
+</details>
 <hr>
 <h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
 <ol>
@@ -447,7 +464,7 @@ In Challenge 10 you extracted the database schema from sqlite_master. You now kn
 <h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
 <p>Experience the <strong>full impact of SQL Injection</strong> — from initial discovery through schema extraction to complete credential theft and offline password cracking. Understand <strong>defense-in-depth</strong>: even if injection is possible, strong password hashing (bcrypt/argon2), proper database permissions, generic error messages, and monitoring can each independently limit the damage. A single vulnerability should never be enough to cause a catastrophic breach — unless every other layer has also failed.</p>
 <hr>
-<p><a href="index.md">← Back to Index</a> | <a href="challenge-10-db-schema.md">Previous: Challenge 10</a></p>
+<p><a href="/challenges/">← Back to Index</a></p>
 <hr>
 <h2 id="-congratulations">🎓 Congratulations!<a hidden class="anchor" aria-hidden="true" href="#-congratulations">#</a></h2>
 <p>You have completed all 11 challenges in the OWASP Juice Shop XSS &amp; SQL Injection Challenge Set. You now have hands-on experience with:</p>

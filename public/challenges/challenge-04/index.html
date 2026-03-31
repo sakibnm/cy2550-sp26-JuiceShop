@@ -129,6 +129,16 @@ The Juice Shop&rsquo;s login form sends your email and password to the server, w
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/challenges/" title="Challenges">
+                    <span>Challenges</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -192,12 +202,20 @@ The Juice Shop&rsquo;s login form sends your email and password to the server, w
 </ol>
 <hr>
 <h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<details>
+<summary>Hint 1 — String termination</summary>
+In SQL, a single quote <code>'</code> terminates a string literal. If you type a single quote in the email field, you are "breaking out" of the string and entering raw SQL territory.
+</details>
+<details>
+<summary>Hint 2 — Comments</summary>
+In SQL, <code>--</code> (two dashes followed by a space) marks the beginning of a comment. Everything after it on that line is ignored by the database engine. This can be used to "chop off" the rest of a query.
+</details>
+<details>
+<summary>Hint 3 — The classic payload</summary>
+Try entering <code>' OR 1=1--</code> as the email. Think about what the resulting query would look like:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Users <span style="color:#66d9ef">WHERE</span> email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">OR</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#75715e">--&#39; AND password = &#39;...&#39;
-</span></span></span></code></pre></div><p>The <!-- raw HTML omitted -->OR 1=1<!-- raw HTML omitted --> makes the WHERE clause true for every row. The <!-- raw HTML omitted -->&ndash;<!-- raw HTML omitted --> comments out the password check. The database returns all users, and the application logs you in as the first one.</p>
-<!-- raw HTML omitted -->
+</span></span></span></code></pre></div><p>The <code>OR 1=1</code> makes the WHERE clause true for every row. The <code>&ndash;</code> comments out the password check. The database returns all users, and the application logs you in as the first one.</p>
+</details>
 <hr>
 <h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
 <ol>
@@ -221,7 +239,7 @@ db.execute(query, [userInput, passHash])
 <h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
 <p>Understand <strong>classic SQL Injection on a login form</strong>. Learn why string concatenation in SQL queries is dangerous — it allows an attacker to break out of a data context and inject arbitrary SQL logic. <strong>Parameterized queries</strong> (prepared statements) are the primary defense, and they completely eliminate this class of vulnerability.</p>
 <hr>
-<p><a href="index.md">← Back to Index</a> | <a href="challenge-03-bonus-payload.md">Previous: Challenge 3</a> | <a href="challenge-05-reflected-xss.md">Next: Challenge 5 — Reflected XSS →</a></p>
+<p><a href="/challenges/">← Back to Index</a></p>
 
 
   </div>

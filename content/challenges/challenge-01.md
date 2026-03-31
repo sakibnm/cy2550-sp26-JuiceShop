@@ -57,4 +57,4 @@ Understand that **client-side code is never truly hidden** from the user. Any ro
 
 ---
 
-[← Back to Index](index.md) | [Next: Challenge 2 — DOM XSS →](challenge-02-dom-xss.md)
+[← Back to Index](/challenges/) 

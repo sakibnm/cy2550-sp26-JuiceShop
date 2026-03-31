@@ -86,4 +86,4 @@ Recognize that **XSS impact goes far beyond `alert()` boxes**. Arbitrary HTML in
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 2](challenge-02-dom-xss.md) | [Next: Challenge 4 — Login Admin via SQLi →](challenge-04-login-admin.md)
+[← Back to Index](/challenges/) 

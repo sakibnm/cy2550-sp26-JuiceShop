@@ -157,4 +157,4 @@ Learn that **APIs are an independent attack surface** that must enforce their ow
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 8](challenge-08-client-side-bypass.md) | [Next: Challenge 10 — Exfiltrate DB Schema →](challenge-10-db-schema.md)
+[← Back to Index](/challenges/) 

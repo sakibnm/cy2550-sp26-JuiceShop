@@ -112,4 +112,4 @@ Understand **reflected XSS** — where malicious input is sent to the server via
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 4](challenge-04-login-admin.md) | [Next: Challenge 6 — Login Jim via SQLi →](challenge-06-login-jim.md)
+[← Back to Index](/challenges/) 

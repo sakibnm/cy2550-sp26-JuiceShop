@@ -129,6 +129,16 @@ In Challenge 8 you bypassed client-side validation on a form. But what if there&
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/challenges/" title="Challenges">
+                    <span>Challenges</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -225,9 +235,18 @@ In Challenge 8 you bypassed client-side validation on a form. But what if there&
 </ol>
 <hr>
 <h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<details>
+<summary>Hint 1 — No authentication required</summary>
+The Juice Shop's product API does not require authentication for PUT requests — that's actually a separate vulnerability (Broken Access Control). For this challenge, it means you can modify any product without logging in.
+</details>
+<details>
+<summary>Hint 2 — Check the response</summary>
+After sending the PUT request, check the JSON response. If the <code>description</code> field contains your payload, the injection was stored successfully. If the field was sanitized or stripped, the server has some protection and you may need to try a different field or encoding.
+</details>
+<details>
+<summary>Hint 3 — Alternative approach</summary>
+If the description field doesn't work, try other writable fields on the product. Some APIs accept more fields than the documentation suggests. Check what fields are returned in a GET response — any of them might be writable.
+</details>
 <hr>
 <h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
 <ol>
@@ -350,7 +369,7 @@ In Challenge 8 you bypassed client-side validation on a form. But what if there&
 <h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
 <p>Learn that <strong>APIs are an independent attack surface</strong> that must enforce their own security controls — authentication, authorization, input validation, and output encoding. Understand that <strong>stored/persisted XSS</strong> injected via an API has the widest blast radius of any XSS type: it affects every user who views the affected page, requires no special link or social engineering, and persists until the malicious data is removed from the database.</p>
 <hr>
-<p><a href="index.md">← Back to Index</a> | <a href="challenge-08-client-side-bypass.md">Previous: Challenge 8</a> | <a href="challenge-10-db-schema.md">Next: Challenge 10 — Exfiltrate DB Schema →</a></p>
+<p><a href="/challenges/">← Back to Index</a></p>
 
 
   </div>

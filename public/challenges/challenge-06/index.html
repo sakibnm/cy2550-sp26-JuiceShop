@@ -129,6 +129,16 @@ In Challenge 4 you used &#39; OR 1=1-- to bypass authentication and log in as th
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/challenges/" title="Challenges">
+                    <span>Challenges</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -202,16 +212,23 @@ In Challenge 4 you used &#39; OR 1=1-- to bypass authentication and log in as th
 </ol>
 <hr>
 <h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<details>
+<summary>Hint 1 — Finding Jim's email</summary>
+Jim is a Star Trek fan. His email address follows the same format as other users. Look at the product reviews — particularly on any space- or sci-fi-themed products. His email is <code>jim@juice-sh.op</code>.
+</details>
+<details>
+<summary>Hint 2 — Payload structure</summary>
+Instead of <code>' OR 1=1--</code> (which targets everyone), you want a payload that targets only Jim's row. Think about this structure:
 <pre tabindex="0"><code>jim@juice-sh.op&#39;--
 </code></pre><p>This closes the string after Jim&rsquo;s email and comments out the rest of the query (including the password check).</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</details>
+<details>
+<summary>Hint 3 — Resulting query</summary>
+With the payload <code>jim@juice-sh.op'--</code>, the server-side query becomes:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Users
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;jim@juice-sh.op&#39;</span><span style="color:#75715e">--&#39; AND password = &#39;...&#39;
-</span></span></span></code></pre></div><p>Everything after <!-- raw HTML omitted -->&ndash;<!-- raw HTML omitted --> is a comment. The query only checks the email, and since Jim&rsquo;s row exists, it returns successfully.</p>
-<!-- raw HTML omitted -->
+</span></span></span></code></pre></div><p>Everything after <code>&ndash;</code> is a comment. The query only checks the email, and since Jim&rsquo;s row exists, it returns successfully.</p>
+</details>
 <hr>
 <h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
 <ol>
@@ -244,7 +261,7 @@ Step 2: EXPLOITATION
 <h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
 <p>Learn to perform <strong>targeted SQL Injection</strong> against a specific user account. Understand that <strong>information disclosure</strong> (like visible email addresses in reviews) combined with injection vulnerabilities dramatically increases risk. The attacker doesn&rsquo;t need to guess or brute-force anything — they simply ask the database to hand over access to the exact account they want.</p>
 <hr>
-<p><a href="index.md">← Back to Index</a> | <a href="challenge-05-reflected-xss.md">Previous: Challenge 5</a> | <a href="challenge-07-login-bender.md">Next: Challenge 7 — Login Bender via SQLi →</a></p>
+<p><a href="/challenges/">← Back to Index</a></p>
 
 
   </div>

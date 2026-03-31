@@ -129,6 +129,16 @@ In the previous challenge you proved that the search bar is injectable — you m
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/challenges/" title="Challenges">
+                    <span>Challenges</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -193,8 +203,14 @@ In the previous challenge you proved that the search bar is injectable — you m
 </ol>
 <hr>
 <h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<details>
+<summary>Hint 1</summary>
+This uses the exact same vulnerability as Challenge 2. The only difference is the payload is more complex HTML — the injection mechanism is identical.
+</details>
+<details>
+<summary>Hint 2</summary>
+If the audio doesn't autoplay, your browser might be blocking it due to autoplay policies. The player widget should still render visually even if sound is muted.
+</details>
 <hr>
 <h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
 <ol>
@@ -252,7 +268,7 @@ In the previous challenge you proved that the search bar is injectable — you m
 <h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
 <p>Recognize that <strong>XSS impact goes far beyond <code>alert()</code> boxes</strong>. Arbitrary HTML injection can be used to deface pages, steal credentials via fake login forms, hijack sessions, or execute complex JavaScript payloads. Any proof-of-concept <code>alert()</code> should be treated as evidence that a much more serious attack is possible.</p>
 <hr>
-<p><a href="index.md">← Back to Index</a> | <a href="challenge-02-dom-xss.md">Previous: Challenge 2</a> | <a href="challenge-04-login-admin.md">Next: Challenge 4 — Login Admin via SQLi →</a></p>
+<p><a href="/challenges/">← Back to Index</a></p>
 
 
   </div>

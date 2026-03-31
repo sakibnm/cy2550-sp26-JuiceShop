@@ -157,4 +157,4 @@ Understand that **client-side validation is a user experience feature, not a sec
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 7](challenge-07-login-bender.md) | [Next: Challenge 9 — API-only Persisted XSS →](challenge-09-api-xss.md)
+[← Back to Index](/challenges/) 

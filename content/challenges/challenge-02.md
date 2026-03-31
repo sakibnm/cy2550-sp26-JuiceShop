@@ -79,4 +79,4 @@ Understand **DOM-based XSS** — where the vulnerability exists entirely in clie
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 1](challenge-01-score-board.md) | [Next: Challenge 3 — Bonus Payload →](challenge-03-bonus-payload.md)
+[← Back to Index](/challenges/) 

@@ -227,7 +227,7 @@ Experience the **full impact of SQL Injection** — from initial discovery throu
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 10](challenge-10-db-schema.md)
+[← Back to Index](/challenges/) 
 
 ---
 

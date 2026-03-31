@@ -129,6 +129,16 @@ After placing an order in the Juice Shop, you are shown an order confirmation or
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/challenges/" title="Challenges">
+                    <span>Challenges</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -204,9 +214,18 @@ After placing an order in the Juice Shop, you are shown an order confirmation or
 </ol>
 <hr>
 <h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<details>
+<summary>Hint 1</summary>
+The Order Tracking feature can also be accessed directly. Try navigating to <code>/#/track-result?id=test</code> and see if the word "test" appears on the page. If it does, that parameter is injectable.
+</details>
+<details>
+<summary>Hint 2</summary>
+If the <code>id</code> parameter doesn't work, look at the network requests in Developer Tools after placing an order. The tracking result endpoint might use a different parameter name or URL structure.
+</details>
+<details>
+<summary>Hint 3</summary>
+The Juice Shop may also reflect input in other places. Check the order confirmation/tracking email or the <code>/track-result/new</code> endpoint for reflected parameters.
+</details>
 <hr>
 <h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
 <ol>
@@ -278,7 +297,7 @@ Browser renders the response → payload executes as JavaScript
 <h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
 <p>Understand <strong>reflected XSS</strong> — where malicious input is sent to the server via a URL or request parameter and reflected back in the response without sanitization. This is dangerous in <strong>phishing and social engineering</strong> scenarios because the malicious URL points to the legitimate domain, making it more convincing. Defenses include <strong>output encoding</strong> on the server side and the <strong>Content-Security-Policy</strong> HTTP header on the browser side.</p>
 <hr>
-<p><a href="index.md">← Back to Index</a> | <a href="challenge-04-login-admin.md">Previous: Challenge 4</a> | <a href="challenge-06-login-jim.md">Next: Challenge 6 — Login Jim via SQLi →</a></p>
+<p><a href="/challenges/">← Back to Index</a></p>
 
 
   </div>

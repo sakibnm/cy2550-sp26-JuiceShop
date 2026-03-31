@@ -2,3 +2,24 @@ baseURL = "https://juiceshop.sakibnm.work/"
 languageCode = "en-us"
 title = "OWASP JuiceShop Practice"
 theme = "PaperMod"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Challenges"
+  url = "/challenges/"
+  weight = 2
+
+[params]
+  mode = "profile"
+  [params.homeInfoParams]
+    Title = "OWASP JuiceShop Practice"
+    Content = "OWASP Juice Shop — XSS & SQL Injection Challenge Set"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

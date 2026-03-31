@@ -193,4 +193,4 @@ Learn **UNION-based SQL Injection** — a technique for extracting arbitrary dat
 
 ---
 
-[← Back to Index](index.md) | [Previous: Challenge 9](challenge-09-api-xss.md) | [Next: Challenge 11 — Retrieve All User Credentials →](challenge-11-credential-theft.md)
+[← Back to Index](/challenges/) 

@@ -1,29 +1,29 @@
 +++
 date = '2026-03-31T14:01:43-04:00'
 draft = false
-title = 'Challenges'
+title = "Challenges"
 +++
+---
 # OWASP Juice Shop — XSS & SQL Injection Challenge Set
 
 > **Prerequisites:** A running instance of OWASP Juice Shop (Docker, Node.js, or cloud-hosted). A modern browser with Developer Tools. Optionally, a proxy tool such as Burp Suite Community Edition or OWASP ZAP.
-
 ---
-
+[Challenge Index](/challenges/)
 ## Challenge Index
 
 | #  | Challenge | Category | Difficulty | Key Concept |
 |----|-----------|----------|------------|-------------|
-| 1  | [Find the Score Board](challenge-01-score-board.md) | Recon | ⭐ | Client-side code inspection |
-| 2  | [DOM XSS](challenge-02-dom-xss.md) | XSS | ⭐ | DOM-based script injection |
-| 3  | [Bonus Payload](challenge-03-bonus-payload.md) | XSS | ⭐ | Real-world XSS impact |
-| 4  | [Login Admin — SQLi](challenge-04-login-admin.md) | SQLi | ⭐⭐ | Authentication bypass |
-| 5  | [Reflected XSS](challenge-05-reflected-xss.md) | XSS | ⭐⭐ | URL-based reflected injection |
-| 6  | [Login Jim — SQLi](challenge-06-login-jim.md) | SQLi | ⭐⭐⭐ | Targeted injection |
-| 7  | [Login Bender — SQLi](challenge-07-login-bender.md) | SQLi | ⭐⭐⭐ | Password strength ≠ safety |
-| 8  | [Client-side XSS Protection Bypass](challenge-08-client-side-bypass.md) | XSS | ⭐⭐⭐ | Client validation is not security |
-| 9  | [API-only Persisted XSS](challenge-09-api-xss.md) | XSS | ⭐⭐⭐ | API attack surface, stored XSS |
-| 10 | [Exfiltrate DB Schema](challenge-10-db-schema.md) | SQLi | ⭐⭐⭐ | UNION SELECT, error disclosure |
-| 11 | [Retrieve All User Credentials](challenge-11-credential-theft.md) | SQLi | ⭐⭐⭐⭐ | Full credential theft, defense-in-depth |
+| 1  | [Find the Score Board](challenge-01) | Recon | ⭐ | Client-side code inspection |
+| 2  | [DOM XSS](challenge-02) | XSS | ⭐ | DOM-based script injection |
+| 3  | [Bonus Payload](challenge-03) | XSS | ⭐ | Real-world XSS impact |
+| 4  | [Login Admin — SQLi](challenge-04) | SQLi | ⭐⭐ | Authentication bypass |
+| 5  | [Reflected XSS](challenge-05) | XSS | ⭐⭐ | URL-based reflected injection |
+| 6  | [Login Jim — SQLi](challenge-06) | SQLi | ⭐⭐⭐ | Targeted injection |
+| 7  | [Login Bender — SQLi](challenge-07) | SQLi | ⭐⭐⭐ | Password strength ≠ safety |
+| 8  | [Client-side XSS Protection Bypass](challenge-08) | XSS | ⭐⭐⭐ | Client validation is not security |
+| 9  | [API-only Persisted XSS](challenge-09) | XSS | ⭐⭐⭐ | API attack surface, stored XSS |
+| 10 | [Exfiltrate DB Schema](challenge-10) | SQLi | ⭐⭐⭐ | UNION SELECT, error disclosure |
+| 11 | [Retrieve All User Credentials](challenge-11) | SQLi | ⭐⭐⭐⭐ | Full credential theft, defense-in-depth |
 
 ---
 

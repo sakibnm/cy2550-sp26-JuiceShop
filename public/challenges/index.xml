@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Challenges on OWASP JuiceShop Practice</title>
     <link>http://localhost:1313/challenges/</link>
@@ -13,77 +13,385 @@
       <link>http://localhost:1313/challenges/challenge-01/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-01/</guid>
-      <description>&lt;h1 id=&#34;challenge-1--find-the-score-board&#34;&gt;Challenge 1 — Find the Score Board&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Recon / Security Misconfiguration&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐ (1 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Client-side code inspection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Locate the hidden Score Board page of the Juice Shop.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;Every good hacker starts with reconnaissance. The Juice Shop tracks your progress on a hidden Score Board page, but there is no visible link to it anywhere in the navigation menu. The developers commented it out — but they forgot that everything shipped to the browser is visible to the user. Your first task is to find it.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-1--find-the-score-board&#34;&gt;Challenge 1 — Find the Score Board&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Recon / Security Misconfiguration&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐ (1 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Client-side code inspection&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Locate the hidden Score Board page of the Juice Shop.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;Every good hacker starts with reconnaissance. The Juice Shop tracks your progress on a hidden Score Board page, but there is no visible link to it anywhere in the navigation menu. The developers commented it out — but they forgot that everything shipped to the browser is visible to the user. Your first task is to find it.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-02/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-02/</guid>
-      <description>&lt;h1 id=&#34;challenge-2--dom-xss&#34;&gt;Challenge 2 — DOM XSS&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐ (1 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;DOM-based script injection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Execute a DOM-based XSS attack using the Juice Shop&amp;rsquo;s search bar.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;The Juice Shop has a product search feature. When you type a search term, the application takes your input and inserts it directly into the page&amp;rsquo;s DOM using client-side JavaScript — without sanitizing it first. This means that if you type HTML or JavaScript instead of a product name, the browser will interpret and execute it as real code.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-2--dom-xss&#34;&gt;Challenge 2 — DOM XSS&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐ (1 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;DOM-based script injection&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Execute a DOM-based XSS attack using the Juice Shop&amp;rsquo;s search bar.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;The Juice Shop has a product search feature. When you type a search term, the application takes your input and inserts it directly into the page&amp;rsquo;s DOM using client-side JavaScript — without sanitizing it first. This means that if you type HTML or JavaScript instead of a product name, the browser will interpret and execute it as real code.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-03/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-03/</guid>
-      <description>&lt;h1 id=&#34;challenge-3--bonus-payload&#34;&gt;Challenge 3 — Bonus Payload&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐ (1 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Real-world XSS impact&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Embed a richer XSS payload in the same DOM XSS vulnerability to demonstrate that the impact of XSS goes far beyond simple alert boxes.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;In the previous challenge you proved that the search bar is injectable — you made the browser execute &lt;code&gt;alert(&#39;xss&#39;)&lt;/code&gt;. A common misconception is that XSS is just about pop-up boxes. In reality, anything that can be expressed as HTML or JavaScript can be injected: fake login forms, hidden keyloggers, cryptocurrency miners, embedded media, redirects to phishing sites, and more.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-3--bonus-payload&#34;&gt;Challenge 3 — Bonus Payload&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐ (1 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Real-world XSS impact&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Embed a richer XSS payload in the same DOM XSS vulnerability to demonstrate that the impact of XSS goes far beyond simple alert boxes.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;In the previous challenge you proved that the search bar is injectable — you made the browser execute &lt;code&gt;alert(&#39;xss&#39;)&lt;/code&gt;. A common misconception is that XSS is just about pop-up boxes. In reality, anything that can be expressed as HTML or JavaScript can be injected: fake login forms, hidden keyloggers, cryptocurrency miners, embedded media, redirects to phishing sites, and more.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-04/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-04/</guid>
-      <description>&lt;h1 id=&#34;challenge-4--login-admin-via-sql-injection&#34;&gt;Challenge 4 — Login Admin via SQL Injection&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;SQL Injection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐⭐ (2 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Authentication bypass&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Log in as the Juice Shop&amp;rsquo;s administrator without knowing the password, by exploiting a SQL Injection vulnerability in the login form.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;The Juice Shop&amp;rsquo;s login form sends your email and password to the server, which constructs an SQL query to verify your credentials. The problem: the query is built using &lt;strong&gt;string concatenation&lt;/strong&gt; rather than parameterized queries. This means your input is placed directly into the SQL string — and if you type SQL syntax instead of an email address, the database engine will interpret it as code.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-4--login-admin-via-sql-injection&#34;&gt;Challenge 4 — Login Admin via SQL Injection&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;SQL Injection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐⭐ (2 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Authentication bypass&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Log in as the Juice Shop&amp;rsquo;s administrator without knowing the password, by exploiting a SQL Injection vulnerability in the login form.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;The Juice Shop&amp;rsquo;s login form sends your email and password to the server, which constructs an SQL query to verify your credentials. The problem: the query is built using &lt;strong&gt;string concatenation&lt;/strong&gt; rather than parameterized queries. This means your input is placed directly into the SQL string — and if you type SQL syntax instead of an email address, the database engine will interpret it as code.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-05/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-05/</guid>
-      <description>&lt;h1 id=&#34;challenge-5--reflected-xss&#34;&gt;Challenge 5 — Reflected XSS&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐⭐ (2 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;URL-based reflected injection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Perform a reflected XSS attack by injecting a malicious payload into a URL parameter that the server echoes back into the page without sanitization.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;After placing an order in the Juice Shop, you are shown an order confirmation or tracking page. The &lt;strong&gt;order tracking ID&lt;/strong&gt; displayed on this page is pulled directly from a URL parameter and rendered into the HTML. The server takes the value from the URL, includes it in its response, and the browser renders it — no sanitization, no encoding.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-5--reflected-xss&#34;&gt;Challenge 5 — Reflected XSS&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐⭐ (2 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;URL-based reflected injection&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Perform a reflected XSS attack by injecting a malicious payload into a URL parameter that the server echoes back into the page without sanitization.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;After placing an order in the Juice Shop, you are shown an order confirmation or tracking page. The &lt;strong&gt;order tracking ID&lt;/strong&gt; displayed on this page is pulled directly from a URL parameter and rendered into the HTML. The server takes the value from the URL, includes it in its response, and the browser renders it — no sanitization, no encoding.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-06/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-06/</guid>
-      <description>&lt;h1 id=&#34;challenge-6--login-jim-via-sql-injection&#34;&gt;Challenge 6 — Login Jim via SQL Injection&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;SQL Injection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Targeted injection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Log in as Jim&amp;rsquo;s user account using SQL Injection — not by guessing his password, but by crafting an injection that targets his account specifically and bypasses the password check entirely.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;In Challenge 4 you used &lt;code&gt;&#39; OR 1=1--&lt;/code&gt; to bypass authentication and log in as the &lt;strong&gt;first user&lt;/strong&gt; in the database (the administrator). That was a blunt instrument — it returned every row and the application picked the first one.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-6--login-jim-via-sql-injection&#34;&gt;Challenge 6 — Login Jim via SQL Injection&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;SQL Injection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Targeted injection&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Log in as Jim&amp;rsquo;s user account using SQL Injection — not by guessing his password, but by crafting an injection that targets his account specifically and bypasses the password check entirely.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;In Challenge 4 you used &lt;code&gt;&#39; OR 1=1--&lt;/code&gt; to bypass authentication and log in as the &lt;strong&gt;first user&lt;/strong&gt; in the database (the administrator). That was a blunt instrument — it returned every row and the application picked the first one.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-07/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-07/</guid>
-      <description>&lt;h1 id=&#34;challenge-7--login-bender-via-sql-injection&#34;&gt;Challenge 7 — Login Bender via SQL Injection&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;SQL Injection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Password strength ≠ safety&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Log in as Bender&amp;rsquo;s user account using SQL Injection. This challenge reinforces the targeted injection technique from Challenge 6 and drives home an important lesson: a strong password does not protect you if the authentication logic is broken.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;Bender is another registered user on the Juice Shop. Unlike some of the other users, &lt;strong&gt;Bender chose a strong password&lt;/strong&gt; — long, complex, and not found in any rainbow table or dictionary. If you managed to extract his password hash (from a later challenge or by other means), you would find that cracking it is not feasible.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-7--login-bender-via-sql-injection&#34;&gt;Challenge 7 — Login Bender via SQL Injection&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;SQL Injection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Password strength ≠ safety&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Log in as Bender&amp;rsquo;s user account using SQL Injection. This challenge reinforces the targeted injection technique from Challenge 6 and drives home an important lesson: a strong password does not protect you if the authentication logic is broken.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;Bender is another registered user on the Juice Shop. Unlike some of the other users, &lt;strong&gt;Bender chose a strong password&lt;/strong&gt; — long, complex, and not found in any rainbow table or dictionary. If you managed to extract his password hash (from a later challenge or by other means), you would find that cracking it is not feasible.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-08/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-08/</guid>
-      <description>&lt;h1 id=&#34;challenge-8--client-side-xss-protection-bypass&#34;&gt;Challenge 8 — Client-side XSS Protection Bypass&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Client-side validation is not security&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Perform a &lt;strong&gt;persisted (stored) XSS&lt;/strong&gt; attack by bypassing the client-side input validation on the registration form. The payload you inject will be saved to the database and executed every time an admin views the user list.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;The Juice Shop&amp;rsquo;s user registration form includes client-side JavaScript validation that checks whether the email field contains a properly formatted email address. If you type something that isn&amp;rsquo;t a valid email, the form won&amp;rsquo;t let you submit.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-8--client-side-xss-protection-bypass&#34;&gt;Challenge 8 — Client-side XSS Protection Bypass&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Client-side validation is not security&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Perform a &lt;strong&gt;persisted (stored) XSS&lt;/strong&gt; attack by bypassing the client-side input validation on the registration form. The payload you inject will be saved to the database and executed every time an admin views the user list.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;The Juice Shop&amp;rsquo;s user registration form includes client-side JavaScript validation that checks whether the email field contains a properly formatted email address. If you type something that isn&amp;rsquo;t a valid email, the form won&amp;rsquo;t let you submit.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-09/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-09/</guid>
-      <description>&lt;h1 id=&#34;challenge-9--api-only-persisted-xss&#34;&gt;Challenge 9 — API-only Persisted XSS&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;API attack surface &amp;amp; stored XSS&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Inject a persisted XSS payload into a product description by &lt;strong&gt;directly calling the Juice Shop&amp;rsquo;s REST API&lt;/strong&gt; — without using the frontend application at all. The payload will be stored in the database and execute for every user who views the affected product.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;In Challenge 8 you bypassed client-side validation on a form. But what if there&amp;rsquo;s no form at all? Many modern web applications expose &lt;strong&gt;REST APIs&lt;/strong&gt; that power the frontend. These APIs are often more permissive than the UI suggests — they may accept fields the frontend never sends, allow methods the UI never uses (like PUT or DELETE), and skip validation that only exists in the frontend JavaScript.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-9--api-only-persisted-xss&#34;&gt;Challenge 9 — API-only Persisted XSS&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Cross-Site Scripting (XSS)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;API attack surface &amp;amp; stored XSS&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Inject a persisted XSS payload into a product description by &lt;strong&gt;directly calling the Juice Shop&amp;rsquo;s REST API&lt;/strong&gt; — without using the frontend application at all. The payload will be stored in the database and execute for every user who views the affected product.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;In Challenge 8 you bypassed client-side validation on a form. But what if there&amp;rsquo;s no form at all? Many modern web applications expose &lt;strong&gt;REST APIs&lt;/strong&gt; that power the frontend. These APIs are often more permissive than the UI suggests — they may accept fields the frontend never sends, allow methods the UI never uses (like PUT or DELETE), and skip validation that only exists in the frontend JavaScript.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-10/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-10/</guid>
-      <description>&lt;h1 id=&#34;challenge-10--exfiltrate-the-database-schema&#34;&gt;Challenge 10 — Exfiltrate the Database Schema&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;SQL Injection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;UNION SELECT &amp;amp; error disclosure&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Use SQL Injection on the product search endpoint to extract the &lt;strong&gt;entire database schema&lt;/strong&gt; — every table name and column definition — using a UNION SELECT attack.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;In Challenges 4, 6, and 7 you exploited SQL Injection on the login form. That endpoint returned a binary result: either you were logged in or you weren&amp;rsquo;t. You could manipulate the query logic, but you couldn&amp;rsquo;t &lt;strong&gt;see&lt;/strong&gt; arbitrary data from the database.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-10--exfiltrate-the-database-schema&#34;&gt;Challenge 10 — Exfiltrate the Database Schema&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;SQL Injection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐⭐⭐ (3 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;UNION SELECT &amp;amp; error disclosure&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Use SQL Injection on the product search endpoint to extract the &lt;strong&gt;entire database schema&lt;/strong&gt; — every table name and column definition — using a UNION SELECT attack.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;In Challenges 4, 6, and 7 you exploited SQL Injection on the login form. That endpoint returned a binary result: either you were logged in or you weren&amp;rsquo;t. You could manipulate the query logic, but you couldn&amp;rsquo;t &lt;strong&gt;see&lt;/strong&gt; arbitrary data from the database.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>http://localhost:1313/challenges/challenge-11/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/challenges/challenge-11/</guid>
-      <description>&lt;h1 id=&#34;challenge-11--retrieve-all-user-credentials&#34;&gt;Challenge 11 — Retrieve All User Credentials&lt;/h1&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;SQL Injection&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;⭐⭐⭐⭐ (4 / 6)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Full credential theft &amp;amp; defense-in-depth&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;&#xA;&lt;p&gt;Use SQL Injection to &lt;strong&gt;dump every user&amp;rsquo;s email address and password hash&lt;/strong&gt; from the database. This is the capstone challenge — it simulates a full credential theft, one of the most damaging outcomes of a SQL Injection vulnerability.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;In Challenge 10 you extracted the database schema from &lt;code&gt;sqlite_master&lt;/code&gt;. You now know the exact structure of the &lt;code&gt;Users&lt;/code&gt; table — its name and all of its column names. Armed with this intelligence, you can craft a precision UNION SELECT that extracts the most sensitive data in the entire database: user credentials.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;challenge-11--retrieve-all-user-credentials&#34;&gt;Challenge 11 — Retrieve All User Credentials&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;SQL Injection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Difficulty&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;⭐⭐⭐⭐ (4 / 6)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Key Concept&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Full credential theft &amp;amp; defense-in-depth&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Use SQL Injection to &lt;strong&gt;dump every user&amp;rsquo;s email address and password hash&lt;/strong&gt; from the database. This is the capstone challenge — it simulates a full credential theft, one of the most damaging outcomes of a SQL Injection vulnerability.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;
+&lt;p&gt;In Challenge 10 you extracted the database schema from &lt;code&gt;sqlite_master&lt;/code&gt;. You now know the exact structure of the &lt;code&gt;Users&lt;/code&gt; table — its name and all of its column names. Armed with this intelligence, you can craft a precision UNION SELECT that extracts the most sensitive data in the entire database: user credentials.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
