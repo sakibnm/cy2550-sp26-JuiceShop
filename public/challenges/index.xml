@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Challenges on OWASP JuiceShop Practice</title>
-    <link>http://localhost:1313/challenges/</link>
+    <link>http://localhost:59066/challenges/</link>
     <description>Recent content in Challenges on OWASP JuiceShop Practice</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/challenges/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:59066/challenges/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-01/</link>
+      <link>http://localhost:59066/challenges/challenge-01/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-01/</guid>
+      <guid>http://localhost:59066/challenges/challenge-01/</guid>
       <description>&lt;h1 id=&#34;challenge-1--find-the-score-board&#34;&gt;Challenge 1 — Find the Score Board&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -45,9 +45,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-02/</link>
+      <link>http://localhost:59066/challenges/challenge-02/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-02/</guid>
+      <guid>http://localhost:59066/challenges/challenge-02/</guid>
       <description>&lt;h1 id=&#34;challenge-2--dom-xss&#34;&gt;Challenge 2 — DOM XSS&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -80,9 +80,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-03/</link>
+      <link>http://localhost:59066/challenges/challenge-03/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-03/</guid>
+      <guid>http://localhost:59066/challenges/challenge-03/</guid>
       <description>&lt;h1 id=&#34;challenge-3--bonus-payload&#34;&gt;Challenge 3 — Bonus Payload&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -115,9 +115,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-04/</link>
+      <link>http://localhost:59066/challenges/challenge-04/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-04/</guid>
+      <guid>http://localhost:59066/challenges/challenge-04/</guid>
       <description>&lt;h1 id=&#34;challenge-4--login-admin-via-sql-injection&#34;&gt;Challenge 4 — Login Admin via SQL Injection&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -150,9 +150,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-05/</link>
+      <link>http://localhost:59066/challenges/challenge-05/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-05/</guid>
+      <guid>http://localhost:59066/challenges/challenge-05/</guid>
       <description>&lt;h1 id=&#34;challenge-5--reflected-xss&#34;&gt;Challenge 5 — Reflected XSS&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -185,9 +185,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-06/</link>
+      <link>http://localhost:59066/challenges/challenge-06/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-06/</guid>
+      <guid>http://localhost:59066/challenges/challenge-06/</guid>
       <description>&lt;h1 id=&#34;challenge-6--login-jim-via-sql-injection&#34;&gt;Challenge 6 — Login Jim via SQL Injection&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -220,9 +220,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-07/</link>
+      <link>http://localhost:59066/challenges/challenge-07/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-07/</guid>
+      <guid>http://localhost:59066/challenges/challenge-07/</guid>
       <description>&lt;h1 id=&#34;challenge-7--login-bender-via-sql-injection&#34;&gt;Challenge 7 — Login Bender via SQL Injection&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -255,9 +255,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-08/</link>
+      <link>http://localhost:59066/challenges/challenge-08/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-08/</guid>
+      <guid>http://localhost:59066/challenges/challenge-08/</guid>
       <description>&lt;h1 id=&#34;challenge-8--client-side-xss-protection-bypass&#34;&gt;Challenge 8 — Client-side XSS Protection Bypass&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -290,9 +290,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-09/</link>
+      <link>http://localhost:59066/challenges/challenge-09/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-09/</guid>
+      <guid>http://localhost:59066/challenges/challenge-09/</guid>
       <description>&lt;h1 id=&#34;challenge-9--api-only-persisted-xss&#34;&gt;Challenge 9 — API-only Persisted XSS&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -325,9 +325,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-10/</link>
+      <link>http://localhost:59066/challenges/challenge-10/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-10/</guid>
+      <guid>http://localhost:59066/challenges/challenge-10/</guid>
       <description>&lt;h1 id=&#34;challenge-10--exfiltrate-the-database-schema&#34;&gt;Challenge 10 — Exfiltrate the Database Schema&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -360,9 +360,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/challenges/challenge-11/</link>
+      <link>http://localhost:59066/challenges/challenge-11/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/challenges/challenge-11/</guid>
+      <guid>http://localhost:59066/challenges/challenge-11/</guid>
       <description>&lt;h1 id=&#34;challenge-11--retrieve-all-user-credentials&#34;&gt;Challenge 11 — Retrieve All User Credentials&lt;/h1&gt;
 &lt;table&gt;
   &lt;thead&gt;
