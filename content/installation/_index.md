@@ -1,6 +1,6 @@
 +++
 date = '2026-03-31T14:01:13-04:00'
-draft = true
+draft = false
 title = 'Installation'
 +++
 # Setup Guide — Installing OWASP Juice Shop with Docker
