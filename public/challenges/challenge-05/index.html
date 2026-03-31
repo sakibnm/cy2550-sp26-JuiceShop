@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>OWASP JuiceShop Practice</title>
+<meta name="keywords" content="">
+<meta name="description" content="Challenge 5 — Reflected XSS
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Category
+          Cross-Site Scripting (XSS)
+      
+      
+          Difficulty
+          ⭐⭐ (2 / 6)
+      
+      
+          Key Concept
+          URL-based reflected injection
+      
+  
+
+
+Objective
+Perform a reflected XSS attack by injecting a malicious payload into a URL parameter that the server echoes back into the page without sanitization.
+
+Scenario
+After placing an order in the Juice Shop, you are shown an order confirmation or tracking page. The order tracking ID displayed on this page is pulled directly from a URL parameter and rendered into the HTML. The server takes the value from the URL, includes it in its response, and the browser renders it — no sanitization, no encoding.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/challenges/challenge-05/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/challenges/challenge-05/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="OWASP JuiceShop Practice (Alt + H)">OWASP JuiceShop Practice</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="challenge-5--reflected-xss">Challenge 5 — Reflected XSS<a hidden class="anchor" aria-hidden="true" href="#challenge-5--reflected-xss">#</a></h1>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Category</strong></td>
+          <td>Cross-Site Scripting (XSS)</td>
+      </tr>
+      <tr>
+          <td><strong>Difficulty</strong></td>
+          <td>⭐⭐ (2 / 6)</td>
+      </tr>
+      <tr>
+          <td><strong>Key Concept</strong></td>
+          <td>URL-based reflected injection</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="objective">Objective<a hidden class="anchor" aria-hidden="true" href="#objective">#</a></h2>
+<p>Perform a reflected XSS attack by injecting a malicious payload into a URL parameter that the server echoes back into the page without sanitization.</p>
+<hr>
+<h2 id="scenario">Scenario<a hidden class="anchor" aria-hidden="true" href="#scenario">#</a></h2>
+<p>After placing an order in the Juice Shop, you are shown an order confirmation or tracking page. The <strong>order tracking ID</strong> displayed on this page is pulled directly from a URL parameter and rendered into the HTML. The server takes the value from the URL, includes it in its response, and the browser renders it — no sanitization, no encoding.</p>
+<p>This means an attacker can craft a malicious URL containing JavaScript, send it to a victim (via email, chat, or social media), and the script will execute the moment the victim clicks the link. The victim&rsquo;s browser trusts the page because it comes from the legitimate Juice Shop domain.</p>
+<hr>
+<h2 id="instructions">Instructions<a hidden class="anchor" aria-hidden="true" href="#instructions">#</a></h2>
+<ol>
+<li>
+<p><strong>Place an order</strong> in the Juice Shop:</p>
+<ul>
+<li>Add any item to your basket.</li>
+<li>Go to the basket and proceed through checkout.</li>
+<li>Complete the order.</li>
+</ul>
+</li>
+<li>
+<p>After the order is confirmed, navigate to the <strong>Order Tracking</strong> page. You can find it via the navigation menu or at <code>/#/track-result</code>.</p>
+</li>
+<li>
+<p>Examine the URL in your browser&rsquo;s address bar. Look for a parameter that controls the tracking ID displayed on the page (e.g., <code>?id=...</code>).</p>
+</li>
+<li>
+<p>Replace the tracking ID value in the URL with the following payload:</p>
+<pre tabindex="0"><code>&lt;iframe src=&#34;javascript:alert(`xss`)&#34;&gt;
+</code></pre></li>
+<li>
+<p>Load the modified URL (press Enter in the address bar).</p>
+</li>
+<li>
+<p>You should see the alert dialog pop up, confirming the reflected XSS.</p>
+</li>
+</ol>
+<hr>
+<h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<hr>
+<h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
+<ol>
+<li><strong>How is reflected XSS different from the DOM XSS</strong> you performed in Challenge 2?
+<ul>
+<li>In DOM XSS, which component handles the malicious input — the server or the browser?</li>
+<li>In reflected XSS, where does the payload travel before it reaches the victim&rsquo;s browser?</li>
+</ul>
+</li>
+<li>Imagine you send the following link to a colleague: <code>https://juice-shop.example.com/#/track-result?id=&lt;iframe src=&quot;javascript:alert('xss')&quot;&gt;</code>. Walk through exactly what happens when they click it.</li>
+<li>Why is this called <strong>&ldquo;reflected&rdquo;</strong> XSS? What is being reflected, and from where to where?</li>
+<li>Could this attack steal the victim&rsquo;s session cookie? If so, how would you modify the payload? (Describe the approach — do not build a working exploit.)</li>
+<li>Name two defenses that could mitigate reflected XSS:
+<ul>
+<li>One <strong>server-side</strong> defense</li>
+<li>One <strong>browser/HTTP-header</strong> defense</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="key-concept-reflected-xss">Key Concept: Reflected XSS<a hidden class="anchor" aria-hidden="true" href="#key-concept-reflected-xss">#</a></h2>
+<p>In a reflected XSS attack, the malicious payload takes this path:</p>
+<pre tabindex="0"><code>Attacker crafts URL with payload
+        │
+        ▼
+Victim clicks the link
+        │
+        ▼
+Browser sends request to server (payload in URL/parameter)
+        │
+        ▼
+Server includes payload in the HTML response (unsanitized)
+        │
+        ▼
+Browser renders the response → payload executes as JavaScript
+</code></pre><p>The payload is <strong>&ldquo;reflected&rdquo;</strong> off the server — it goes in with the request and comes back in the response. The server doesn&rsquo;t store it; it&rsquo;s a one-shot attack that requires the victim to click a crafted link.</p>
+<p><strong>Comparison of XSS types so far:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Type</th>
+          <th>Payload stored?</th>
+          <th>Server involved?</th>
+          <th>Requires victim action?</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>DOM XSS</strong> (Challenge 2)</td>
+          <td>No</td>
+          <td>No — purely client-side</td>
+          <td>Yes — must trigger the JS</td>
+      </tr>
+      <tr>
+          <td><strong>Reflected XSS</strong> (this challenge)</td>
+          <td>No</td>
+          <td>Yes — server reflects it</td>
+          <td>Yes — must click crafted URL</td>
+      </tr>
+      <tr>
+          <td><strong>Stored XSS</strong> (Challenges 8 &amp; 9)</td>
+          <td>Yes — in database</td>
+          <td>Yes — serves it to all visitors</td>
+          <td>No — just viewing the page</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
+<p>Understand <strong>reflected XSS</strong> — where malicious input is sent to the server via a URL or request parameter and reflected back in the response without sanitization. This is dangerous in <strong>phishing and social engineering</strong> scenarios because the malicious URL points to the legitimate domain, making it more convincing. Defenses include <strong>output encoding</strong> on the server side and the <strong>Content-Security-Policy</strong> HTTP header on the browser side.</p>
+<hr>
+<p><a href="index.md">← Back to Index</a> | <a href="challenge-04-login-admin.md">Previous: Challenge 4</a> | <a href="challenge-06-login-jim.md">Next: Challenge 6 — Login Jim via SQLi →</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">OWASP JuiceShop Practice</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

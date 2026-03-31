@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>OWASP JuiceShop Practice</title>
+<meta name="keywords" content="">
+<meta name="description" content="Challenge 2 — DOM XSS
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Category
+          Cross-Site Scripting (XSS)
+      
+      
+          Difficulty
+          ⭐ (1 / 6)
+      
+      
+          Key Concept
+          DOM-based script injection
+      
+  
+
+
+Objective
+Execute a DOM-based XSS attack using the Juice Shop&rsquo;s search bar.
+
+Scenario
+The Juice Shop has a product search feature. When you type a search term, the application takes your input and inserts it directly into the page&rsquo;s DOM using client-side JavaScript — without sanitizing it first. This means that if you type HTML or JavaScript instead of a product name, the browser will interpret and execute it as real code.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/challenges/challenge-02/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/challenges/challenge-02/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="OWASP JuiceShop Practice (Alt + H)">OWASP JuiceShop Practice</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="challenge-2--dom-xss">Challenge 2 — DOM XSS<a hidden class="anchor" aria-hidden="true" href="#challenge-2--dom-xss">#</a></h1>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Category</strong></td>
+          <td>Cross-Site Scripting (XSS)</td>
+      </tr>
+      <tr>
+          <td><strong>Difficulty</strong></td>
+          <td>⭐ (1 / 6)</td>
+      </tr>
+      <tr>
+          <td><strong>Key Concept</strong></td>
+          <td>DOM-based script injection</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="objective">Objective<a hidden class="anchor" aria-hidden="true" href="#objective">#</a></h2>
+<p>Execute a DOM-based XSS attack using the Juice Shop&rsquo;s search bar.</p>
+<hr>
+<h2 id="scenario">Scenario<a hidden class="anchor" aria-hidden="true" href="#scenario">#</a></h2>
+<p>The Juice Shop has a product search feature. When you type a search term, the application takes your input and inserts it directly into the page&rsquo;s DOM using client-side JavaScript — without sanitizing it first. This means that if you type HTML or JavaScript instead of a product name, the browser will interpret and execute it as real code.</p>
+<p>Your goal is to prove this vulnerability exists by making the browser execute a script you control.</p>
+<hr>
+<h2 id="instructions">Instructions<a hidden class="anchor" aria-hidden="true" href="#instructions">#</a></h2>
+<ol>
+<li>
+<p>Navigate to the Juice Shop&rsquo;s main page and locate the <strong>search bar</strong> (magnifying glass icon in the top navigation).</p>
+</li>
+<li>
+<p>Click the search bar and enter the following payload exactly as written:</p>
+<pre tabindex="0"><code>&lt;iframe src=&#34;javascript:alert(`xss`)&#34;&gt;
+</code></pre></li>
+<li>
+<p>Press <strong>Enter</strong> and observe what happens on the page.</p>
+</li>
+<li>
+<p>You should see a JavaScript alert dialog pop up with the text &ldquo;xss.&rdquo;</p>
+</li>
+<li>
+<p>Open <strong>Developer Tools → Elements</strong> tab and find where your payload was inserted into the DOM.</p>
+</li>
+</ol>
+<hr>
+<h2 id="hints">Hints<a hidden class="anchor" aria-hidden="true" href="#hints">#</a></h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<hr>
+<h2 id="questions">Questions<a hidden class="anchor" aria-hidden="true" href="#questions">#</a></h2>
+<ol>
+<li>Did the payload execute? What exactly did you see on screen?</li>
+<li>Why does an <code>&lt;iframe&gt;</code> with a <code>javascript:</code> source trigger script execution? How is this different from using a <code>&lt;script&gt;</code> tag?</li>
+<li>Open Developer Tools → Elements. Where exactly was your payload inserted into the DOM? What HTML element contains it?</li>
+<li>This is called <strong>DOM-based</strong> XSS. The server never saw your malicious payload — it was all handled by client-side JavaScript. How is this different from the server reflecting your input in the HTTP response?</li>
+<li>As a developer, what JavaScript API or technique would you use to safely insert user input into the DOM? (Hint: think about <code>innerText</code> vs. <code>innerHTML</code>.)</li>
+</ol>
+<hr>
+<h2 id="key-concept-dom-based-xss">Key Concept: DOM-Based XSS<a hidden class="anchor" aria-hidden="true" href="#key-concept-dom-based-xss">#</a></h2>
+<p>In a DOM-based XSS attack, the vulnerability exists entirely in <strong>client-side JavaScript</strong>. The flow is:</p>
+<pre tabindex="0"><code>User input → Client-side JS reads input → JS writes input to DOM (unsanitized) → Browser renders it as HTML/JS
+</code></pre><p>The server is never involved in the injection. The malicious payload never appears in an HTTP response — it lives only in the browser. This makes DOM XSS harder to detect with server-side security tools like Web Application Firewalls (WAFs).</p>
+<hr>
+<h2 id="learning-outcome">Learning Outcome<a hidden class="anchor" aria-hidden="true" href="#learning-outcome">#</a></h2>
+<p>Understand <strong>DOM-based XSS</strong> — where the vulnerability exists entirely in client-side JavaScript that takes user input and writes it to the page without sanitization. The fix is to use safe DOM APIs (like <code>textContent</code> or <code>innerText</code>) instead of <code>innerHTML</code>, or to sanitize input before rendering.</p>
+<hr>
+<p><a href="index.md">← Back to Index</a> | <a href="challenge-01-score-board.md">Previous: Challenge 1</a> | <a href="challenge-03-bonus-payload.md">Next: Challenge 3 — Bonus Payload →</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">OWASP JuiceShop Practice</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

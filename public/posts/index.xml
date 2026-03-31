@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on OWASP JuiceShop Practice</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on OWASP JuiceShop Practice</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Mar 2026 13:57:31 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Challenges</title>
+      <link>http://localhost:1313/posts/challenges/</link>
+      <pubDate>Tue, 31 Mar 2026 13:57:31 -0400</pubDate>
+      <guid>http://localhost:1313/posts/challenges/</guid>
+      <description>&lt;h1 id=&#34;owasp-juice-shop--xss--sql-injection-challenge-set&#34;&gt;OWASP Juice Shop — XSS &amp;amp; SQL Injection Challenge Set&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Prerequisites:&lt;/strong&gt; A running instance of OWASP Juice Shop (Docker, Node.js, or cloud-hosted). A modern browser with Developer Tools. Optionally, a proxy tool such as Burp Suite Community Edition or OWASP ZAP.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;challenge-1--find-the-score-board-&#34;&gt;Challenge 1 — Find the Score Board ⭐&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Category:&lt;/strong&gt; Security Misconfiguration&lt;br&gt;
+&lt;strong&gt;Objective:&lt;/strong&gt; Locate the hidden Score Board page of the Juice Shop.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scenario:&lt;/strong&gt;&lt;br&gt;
+Every good hacker starts with reconnaissance. The Juice Shop tracks your progress on a hidden Score Board page, but there is no visible link to it anywhere in the navigation menu. Your first task is to find it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

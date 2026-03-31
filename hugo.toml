@@ -1,0 +1,4 @@
+baseURL = "https://juiceshop.sakibnm.work/"
+languageCode = "en-us"
+title = "OWASP JuiceShop Practice"
+theme = "PaperMod"
