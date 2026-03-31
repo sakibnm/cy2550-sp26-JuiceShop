@@ -336,7 +336,7 @@ This gives you a clean database and a fresh application state.
 
 ---
 ## You're Ready! Good Luck!
-### NSM
+### - Prof Miazi
 
 Once you can see the Juice Shop storefront at `http://localhost:3000`, proceed to the challenges:
 
